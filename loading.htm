@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>loading 演示</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name=”renderer” content=”webkit” /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link rel="stylesheet" href="css/bp.css" />
+<script src="../tools/js/jquery-2.2.1.min.js"></script>
+<script src="js/bp.js"></script>
+</head>
+
+<body>
+loading 演示
+<br />
+<br />
+<br />
+<br />
+<br />演示loading
+<br />
+<br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<a href="javascript:;" id="body" style="position:relative;z-index:9999;">关闭测试</a>
+<!--loading start-->
+<!--<div class="loading" style="display:block;"><i class="icon-spinner" title="loading"></i></div>-->
+<!--loading end-->
+<script>
+window.onload=function(){
+//document.write('<div class="loading" id="loading" style="display:block;"><i class="icon-spinner" title="loading">2</i></div>');
+
+//创建loading
+var loadingDiv = document.createElement('div');loadingDiv.setAttribute("id","loading");loadingDiv.innerHTML='<i class="icon-spinner"></i>';document.getElementsByTagName("body")[0].appendChild(loadingDiv);
+
+}
+
+$(function(){
+	$("#body").click(function(){
+		$("#loading").remove();
+		});
+	});
+</script>
+
+
+<div class="copyright">AceBridge Inc. All rights reserved.<br />&copy;沪ICP备11021546号 </div>
+
+
+</body>
+</html>

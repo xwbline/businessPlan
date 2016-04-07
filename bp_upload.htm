@@ -1,0 +1,357 @@
+<!DOCTYPE HTML>
+<html ng-app="bpUpload">
+<head>
+<meta charset="utf-8">
+<title>上传BP</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name=”renderer” content=”webkit” /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link rel="stylesheet" href="css/bp.css" />
+<!--[if lt IE 9]><script src="../tools/js/html5.js"></script><![endif]-->
+<script src="../tools/js/jquery-2.2.1.min.js"></script>
+<script src="../tools/js/angular.min.js"></script>
+<script src="js/bp.js"></script>
+</head>
+
+<body class="pageUpload">
+<!--[if lt IE 9]><div class="hate_ie">一度提示：您的浏览器版本过低，不能正常访问本站。<br />请使用IE9以上浏览器或者谷歌、火狐、360极速等高级浏览器！</div><![endif]-->
+<script src="topbar_founder.js"></script>
+<div class="wrap mainBoxSty01">
+	<section class="boxHeader">
+		<h2><i class="icon-plus"></i> 上传BP</h2>
+		* 以下均为必填项。
+        <div class="tipsMobile">注：因要上传BP文件，请在电脑中进行此步骤。网址为http://bp.acebrige.net/bp_upload.htm</div>
+	</section>
+	<article class="mainBox">
+	<div class="alertWin alert_warning">
+	<i class="close jq_closeParent" title="关闭">&times;</i>
+	<h4><i class="icon-info"></i> 提示!</h4>
+	您有一个尚未编辑完成的项目，是否继续编辑？
+	<a href="javascript:;" class="btnSty06">继续编辑</a>&#12288;<a href="javascript:;" class="btnsty02 jq_closeParent">放弃</a>
+	</div>
+
+		<ul class="formList">
+			<li ng-controller="openEditBox"><!-- 相关效果angula在bp.js的47行 -->
+				<span class="caption">项目名称：</span>
+				<div class="textBox" ng-hide="editBox">
+				<input type="text" placeholder="请输入项目名称" class="text jq_getPlaceholder" />
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999 jq_showPlaceholder" id=""><!-- 显示输入框的提示文字 --></div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请填写项目名称</span>
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 项目名称限制30字以内</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">项目概要：</span>
+				<div class="textBox" ng-hide="editBox">
+				<textarea name="" id="" cols="30" rows="10" class="jq_getPlaceholder" placeholder="一句话简单介绍您的项目"></textarea>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999" id="">一句话简单介绍您的项目</div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请填写项目概要</span>
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 限制1000字以内</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">项目阶段：</span>
+				<div class="textBox selectTagsSty" ng-hide="editBox">
+				<label for="zhongzi"><input id="zhongzi" type="radio" name="xmjd" /> 种子</label>
+				<label for="tianshi"><input id="tianshi" type="radio" name="xmjd" /> 天使/PreA</label>
+				<label for="a"><input id="a" type="radio" name="xmjd" /> A轮</label>
+				<label for="b"><input id="b" type="radio" name="xmjd" /> B轮</label>
+				<label for="c"><input id="c" type="radio" name="xmjd" /> C轮</label>
+				<label for="d"><input id="d" type="radio" name="xmjd" /> D轮</label>
+				<label for="e"><input id="e" type="radio" name="xmjd" /> E轮</label>
+				<label for="ipoqina"><input id="ipoqina" type="radio" name="xmjd" /> IPO前融资</label>
+				<label for="xinsanbanqain"><input id="xinsanbanqain" type="radio" name="xmjd" /> 新三板前融资</label>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999" id="">选择项目阶段</div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请选择项目阶段</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">所属领域：</span>
+				<div class="textBox selectTagsSty selectTagsSty_lingyu" ng-hide="editBox">
+				<label for="dzsw"><input id="dzsw" type="radio" name="lingyu" /> 电子商务</label>
+				<label for="ydhlw"><input id="ydhlw" type="radio" name="lingyu" /> 移动互联网</label>
+				<label for="xxjs"><input id="xxjs" type="radio" name="lingyu" /> 信息技术</label>
+				<label for="yx"><input id="yx" type="radio" name="lingyu" /> 游戏</label>
+				<label for="gjrj"><input id="gjrj" type="radio" name="lingyu" /> 工具软件</label>
+				<label for="dsj"><input id="dsj" type="radio" name="lingyu" /> 大数据</label>
+				<label for="yfw"><input id="yfw" type="radio" name="lingyu" /> 云服务</label>
+				<label for="zhcs"><input id="zhcs" type="radio" name="lingyu" /> 智慧城市</label>
+				<label for="wlw"><input id="wlw" type="radio" name="lingyu" /> 物联网/职能设备</label>
+				<label for="jqr"><input id="jqr" type="radio" name="lingyu" /> 机器人</label>
+				<label for="xnxs"><input id="xnxs" type="radio" name="lingyu" /> 虚拟现实/人工智能</label>
+				<label for="xny"><input id="xny" type="radio" name="lingyu" /> 新能源/环保</label>
+				<label for="jk"><input id="jk" type="radio" name="lingyu" /> 健康/养老</label>
+				<label for="yl"><input id="yl" type="radio" name="lingyu" /> 医疗</label>
+				<label for="swzy"><input id="swzy" type="radio" name="lingyu" /> 生物制药</label>
+				<label for="xfsh"><input id="xfsh" type="radio" name="lingyu" /> 消费生活</label>
+				<label for="whcm"><input id="whcm" type="radio" name="lingyu" /> 文化传媒</label>
+				<label for="ty"><input id="ty" type="radio" name="lingyu" /> 体育</label>
+				<label for="ly"><input id="ly" type="radio" name="lingyu" /> 旅游</label>
+				<label for="jr"><input id="jr" type="radio" name="lingyu" /> 金融</label>
+				<label for="jy"><input id="jy" type="radio" name="lingyu" /> 教育</label>
+				<label for="sj"><input id="sj" type="radio" name="lingyu" /> 社交</label>
+				<label for="yl"><input id="yl" type="radio" name="lingyu" /> 娱乐</label>
+				<label for="hw"><input id="hw" type="radio" name="lingyu" /> 海外</label>
+				<label for="pt"><input id="pt" type="radio" name="lingyu" /> 平台</label>
+				<label for="fcjd"><input id="fcjd" type="radio" name="lingyu" /> 房产酒店</label>
+				<label for="zxfw"><input id="zxfw" type="radio" name="lingyu" /> 咨询服务</label>
+				<label for="nlmy"><input id="nlmy" type="radio" name="lingyu" /> 农林牧渔</label>
+				<label for="qt"><input id="qt" type="radio" name="lingyu" /> 其他</label>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999" id="">选择项目所属领域</div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请选择项目所属领域</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">项目所在地区：</span>
+				<div class="textBox selectTagsSty" ng-hide="editBox">
+				<label for="bj"><input id="bj" type="radio" name="diqu" /> 北京</label>
+				<label for="sh"><input id="sh" type="radio" name="diqu" /> 上海</label>
+				<label for="tj"><input id="tj" type="radio" name="diqu" /> 天津</label>
+				<label for="cq"><input id="cq" type="radio" name="diqu" /> 重庆</label>
+				<label for="xg"><input id="xg" type="radio" name="diqu" /> 香港</label>
+				<label for="am"><input id="am" type="radio" name="diqu" /> 澳门</label>
+				<label for="jl"><input id="jl" type="radio" name="diqu" /> 吉林</label>
+				<label for="hlj"><input id="hlj" type="radio" name="diqu" /> 黑龙江</label>
+				<label for="ln"><input id="ln" type="radio" name="diqu" /> 辽宁</label>
+				<label for="sd"><input id="sd" type="radio" name="diqu" /> 山东</label>
+				<label for="xa"><input id="xa" type="radio" name="diqu" /> 陕西</label>
+				<label for="sx"><input id="sx" type="radio" name="diqu" /> 山西</label>
+				<label for="hb"><input id="hb" type="radio" name="diqu" /> 河北</label>
+				<label for="hn"><input id="hn" type="radio" name="diqu" /> 河南</label>
+				<label for="wh"><input id="wh" type="radio" name="diqu" /> 湖北</label>
+				<label for="cs"><input id="cs" type="radio" name="diqu" /> 湖南</label>
+				<label for="js"><input id="js" type="radio" name="diqu" /> 江苏</label>
+				<label for="jx"><input id="jx" type="radio" name="diqu" /> 江西</label>
+				<label for="gd"><input id="gd" type="radio" name="diqu" /> 广东</label>
+				<label for="gx"><input id="gx" type="radio" name="diqu" /> 广西</label>
+				<label for="yn"><input id="yn" type="radio" name="diqu" /> 云南</label>
+				<label for="gz"><input id="gz" type="radio" name="diqu" /> 贵州</label>
+				<label for="sc"><input id="sc" type="radio" name="diqu" /> 四川</label>
+				<label for="nx"><input id="nx" type="radio" name="diqu" /> 宁夏</label>
+				<label for="nmg"><input id="nmg" type="radio" name="diqu" /> 内蒙古</label>
+				<label for="gs"><input id="gs" type="radio" name="diqu" /> 甘肃</label>
+				<label for="qh"><input id="qh" type="radio" name="diqu" /> 青海</label>
+				<label for="xz"><input id="xz" type="radio" name="diqu" /> 西藏</label>
+				<label for="xj"><input id="xj" type="radio" name="diqu" /> 新疆</label>
+				<label for="ah"><input id="ah" type="radio" name="diqu" /> 安徽</label>
+				<label for="zj"><input id="zj" type="radio" name="diqu" /> 浙江</label>
+				<label for="fj"><input id="fj" type="radio" name="diqu" /> 福建</label>
+				<label for="tw"><input id="tw" type="radio" name="diqu" /> 台湾</label>
+				<label for="hw"><input id="hw" type="radio" name="diqu" /> 海外</label>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999" id="">选择项目所属地区</div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请项目所在地区</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">商业计划书：</span>
+				<div class="textBox" ng-hide="editBox">
+				<input type="file" name="" id="" /> <span class="c999 f12">（文件格式限ppt、pptx、pdf）</span>
+                <!--进度条-->
+				<div class="progress mt10"><i style="width:50%;"><span>50%</span></i></div>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999" id="">上传您的商业计划书</div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请上传商业计划书</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">项目图片：</span>
+				<div class="textBox" ng-hide="editBox">
+				<input type="file" name="" id="" onchange="fileSelected();" /> <div class="c999 f12">（文件格式限jpg、gif、png，尺寸960px*720px，大小2M以内。PPT另存为图片即可上传。）</div>
+                <!--进度条-->
+				<div class="progress mt10"><i style="width:2%;"><span>10%</span></i></div>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999" id="">上传一张体现项目特色的图片</div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请上传项目图片</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">目标人群及痛点：</span>
+				<div class="textBox" ng-hide="editBox">
+				<textarea name="" id="" cols="30" rows="10" class="jq_getPlaceholder" placeholder="输入您的目标用户，以及解决了目标用户的什么痛点"></textarea>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999 jq_showPlaceholder" id=""><!-- 显示输入框的提示文字 --></div>
+				<!-- 这里放输入的文字 -->强制单词折行测试skflskjdfkajskdflakjsdkjalksdjkajsdlkjlaksjdlkkflskjdfkajskdflakjsdkjalksdjkajsdlkjlaksjdlkkflskjdfkajskdflakjsdkjalksdjkajsdlkjlaksjdlkkflskjdfkajskdflakjsdkjalksdjkajsdlkjlaksjdlkkflskjdfkajskdflakjsdkjalksdjkajsdlkjlaksjdlkkflskjdfkajskdflakjsdkjalksdjkajsdlkjlaksjdlkkflskjdfkajskdflakjsdkjalksdjkajsdlkjlaksjdlkkflskjdfkajskdflakjsdkjalksdjkajsdlkjlaksjdlk
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请填写目标人群及痛点</span>
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 限制1000字以内</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">市场规模及趋势：</span>
+				<div class="textBox" ng-hide="editBox">
+				<textarea name="" id="" cols="30" rows="10" class="jq_getPlaceholder" placeholder="输入您的目标市场规模，以及市场、行业的发展趋势"></textarea>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999 jq_showPlaceholder" id=""><!-- 显示输入框的提示文字 --></div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请填写市场规模及趋势</span>
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 限制1000字以内</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">产品服务模式：</span>
+				<div class="textBox" ng-hide="editBox">
+				<textarea name="" id="" cols="30" rows="10" class="jq_getPlaceholder" placeholder="输入您提供了什么样的产品或者服务"></textarea>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999 jq_showPlaceholder" id=""><!-- 显示输入框的提示文字 --></div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请填写产品服务模式</span>
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 限制1000字以内</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">核心竞争优势：</span>
+				<div class="textBox" ng-hide="editBox">
+				<textarea name="" id="" cols="30" rows="10" class="jq_getPlaceholder" placeholder="输入您相对于其他竞争者的优势"></textarea>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999 jq_showPlaceholder" id=""><!-- 显示输入框的提示文字 --></div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请填写核心竞争优势</span>
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 限制1000字以内</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">商业模式：</span>
+				<div class="textBox" ng-hide="editBox">
+				<textarea name="" id="" cols="30" rows="10" class="jq_getPlaceholder" placeholder="输入您通过何种方式获得盈利"></textarea>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999 jq_showPlaceholder" id=""><!-- 显示输入框的提示文字 --></div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请填写商业模式</span>
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 限制1000字以内</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+			<li ng-controller="openEditBox">
+				<span class="caption">团队介绍：</span>
+				<div class="textBox" ng-hide="editBox">
+				<textarea name="" id="ddd" cols="30" rows="10" class="jq_getPlaceholder" placeholder="介绍您的主要团队成员以及他们的职业、背景"></textarea>
+				</div>
+				<div class="textBox" ng-show="showBox">
+				<div class="c999 jq_showPlaceholder" id=""><!-- 显示输入框的提示文字 --></div>
+				<!-- 这里放输入的文字 -->
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 请填写团队介绍</span>
+				<span class="has_error" ng-hide="flase"><i class="icon-cross"></i> 限制1000字以内</span>
+				</div>
+				<div class="btnBar">
+				<a href="javascript:;" ng-click="edit()" ng-show="btnEdit"><i class="icon-pencil"></i> 编辑</a>
+				<a href="javascript:;" ng-click="save()" ng-hide="btnSave" class="btnSave"><i class="icon-floppy-disk"></i> 保存</a>
+				<a href="javascript:;" ng-click="esc()" ng-hide="btnEsc"><i class="icon-cancel-circle"></i> 取消</a>
+				</div>
+			</li>
+		</ul>
+		<div class="tc mt10"><input type="button" value="创建项目" class="btnSty04 mb5" /><br />项目提交后不可修改，请确认信息填写准确</div>
+<span class="has_error" ng-hide="false"><i class="icon-cross"></i> 通用错误提示(可用于行内)</span>
+<span class="has_success" ng-hide="false"><i class="icon-checkmark"></i> 通用成功提示(可用于行内)</span>
+<div class="alertWin alert_success" ng-hide="false">
+<i class="close jq_closeParent" title="关闭">&times;</i>
+<h4><i class="icon-checkmark"></i> 某操作成功!</h4>
+这是一个操作成功后的提示，依据情况组织语言。
+</div>
+<div class="alertWin alert_danger" ng-hide="false">
+<i class="close jq_closeParent" title="关闭">&times;</i>
+<h4><i class="icon-cross"></i> 某操作失败!</h4>
+这是一个失败的跳转提示，告知用户失败原因，并提示后续应该怎么操作。
+</div>
+
+	</article>
+</div>
+
+<div class="bpWin" id="jq_fieldWin">
+	<div class="fieldArticle">
+	<i class="btnClose jq_closeParents">&times;</i>
+		<h4 class="caption">请选择行业领域（最多选择1项）</h4>
+		<div id="" class="selectTagsSty">
+		<a href="javascript:;" class="current">电子商务</a><a href="javascript:;">移动互联网</a><a href="javascript:;">信息技术</a><a href="javascript:;">游戏</a><a href="javascript:;">工具软件</a><a href="javascript:;">大数据</a><a href="javascript:;">云服务</a><a href="javascript:;">智慧城市</a><a href="javascript:;">物联网/职能设备</a><a href="javascript:;">机器人</a><a href="javascript:;">虚拟现实/人工智能</a><a href="javascript:;">新能源/环保</a><a href="javascript:;">健康/养老</a><a href="javascript:;">医疗</a><a href="javascript:;">生物制药</a><a href="javascript:;">消费生活</a><a href="javascript:;">文化传媒</a><a href="javascript:;">体育</a><a href="javascript:;">旅游</a><a href="javascript:;">金融</a><a href="javascript:;">教育</a><a href="javascript:;">社交</a><a href="javascript:;">娱乐</a><a href="javascript:;">海外</a><a href="javascript:;">平台</a><a href="javascript:;">房产酒店</a><a href="javascript:;">咨询服务</a><a href="javascript:;">农林牧渔</a><a href="javascript:;">其他</a>
+		</div>
+		<div class="tc"><input type="button" value="确定" class="btnSty04 jq_closeParents" /></div>
+	</div>
+</div>
+
+<div class="boot">Copyright©2014-2016 AceBridge.com Inc. All Rights Reserved.<br />沪ICP备11021546号</div>
+</body>
+
+</html>
