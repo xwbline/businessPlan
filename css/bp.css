@@ -29,7 +29,8 @@ table{width:100%;border-collapse:collapse;}
 .pageDetails .bpMine,.pageDetails .bpMine i,
 .pageBpList .navBpList,.pageBpList .navBpList i,
 .pageBpCollect .navBpCollect,.pageBpCollect .navBpCollect i,
-.pageBpWait .navBpWait,.pageBpWait .navBpWait i
+.pageBpWait .navBpWait,.pageBpWait .navBpWait i,
+.pageShareList .navShareList,.pageShareList .navShareList i
 {color:#fff;}
 .role{display:inline-block;height:30px;padding-left:10px;border-left:1px solid #363e46;vertical-align:middle;font-size:18px;line-height:30px;color:#949da2;}
 .boxHeader{position:relative;padding:30px 43px;background:#08a1ff;color:#eceff1;}
@@ -233,6 +234,7 @@ table{width:100%;border-collapse:collapse;}
 .icon-rss2:before{content:"\e91d";}
 .icon-location2:before{content:"\e939";}
 .icon-menu:before{content:"\e98a";}
+.icon-share02:before{content:"\ea26";}
 .icon-info:before{content:"\e9d8";}
 .icon-sort-amount-asc{content:"\ea11";}
 .icon-sort-amount-desc{content:"\ea12";}
