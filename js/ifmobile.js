@@ -25,9 +25,9 @@ function getQueryString(name) {
     if (r != null) return unescape(r[2]); return null;
   }
   var system ={
-        win : false,
-        mac : false,
-        xll : false
+        win :false,
+        mac :false,
+        xll :false
     };
     //检测平台
     var p = navigator.platform;

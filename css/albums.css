@@ -1,0 +1,35 @@
+#albums{position:relative;width:100%;height:100%;text-align:center;}
+#albums a{display:none;position:absolute;left:0;top:0;width:100%;height:100%;background-size:cover;-moz-background-size:cover;-webkit-background-size:cover;opacity:.5;}
+#albums a:first-child{display:block;z-index:2;}
+#albums img{width:100%;height:100%;}
+#albumsNum{position:absolute;left:50%;top:50%;height:30px;width:30px;border:2px solid #fff;margin:-17px 0 0 -17px;border-radius:50%;background:#333;line-height:30px;color:#fff;z-index:1;}
+
+@media screen and (max-width:960px){
+	#albums, #credit{width:auto;}
+}
+#galleryOverlay{width:100%;height:100%;position:fixed;top:0;left:0;opacity:0;z-index:100000;background-color:#222;overflow:hidden;display:none;-moz-transition:opacity 1s ease;-webkit-transition:opacity 1s ease;transition:opacity 1s ease;}
+#galleryOverlay.visible{opacity:1;}
+#gallerySlider{height:100%;left:0;top:0;width:100%;white-space:nowrap;position:absolute;-moz-transition:left 0.4s ease;-webkit-transition:left 0.4s ease;transition:left 0.4s ease;}
+#gallerySlider .placeholder{height:100%;line-height:1px;text-align:center;width:100%;display:inline-block;}
+#gallerySlider .placeholder:before{content:"";display:inline-block;height:50%;width:1px;margin-right:-1px;}
+#gallerySlider .placeholder img{display:inline-block;max-height:100%;max-width:100%;vertical-align:middle;}
+#gallerySlider.rightSpring{-moz-animation:rightSpring 0.3s;-webkit-animation:rightSpring 0.3s;}
+#gallerySlider.leftSpring{-moz-animation:leftSpring 0.3s;-webkit-animation:leftSpring 0.3s;}
+@-moz-keyframes rightSpring{0%{margin-left:0px;}
+50%{margin-left:-30px;}
+100%{margin-left:0px;}}
+@-moz-keyframes leftSpring{0%{margin-left:0px;}
+50%{margin-left:30px;}
+100%{margin-left:0px;}}
+@-webkit-keyframes rightSpring{0%{margin-left:0px;}
+50%{margin-left:-30px;}
+100%{margin-left:0px;}}
+@-webkit-keyframes leftSpring{0%{margin-left:0px;}
+50%{margin-left:30px;}
+100%{margin-left:0px;}}
+#prevArrow,#nextArrow{border:none;text-decoration:none;border-radius:5px;background:#333;opacity:0.5;cursor:pointer;position:absolute;width:43px;height:58px;top:50%;margin-top:-29px;-moz-transition:opacity 0.2s ease;-webkit-transition:opacity 0.2s ease;transition:opacity 0.2s ease;}
+#prevArrow:hover, #nextArrow:hover{opacity:1;}
+#prevArrow{left:40px;}
+#nextArrow{right:40px;}
+#prevArrow:after{content:"<";margin-left:12px;font-size:30px;color:#fff;}
+#nextArrow:after{content:">";margin-left:13px;font-size:30px;color:#fff;}

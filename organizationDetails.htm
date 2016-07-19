@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<title>机构详情-一度人脉</title>
+<meta name="keywords" content="一度人脉,Acebridge,ace,BP,人脉,众筹,CEO社群,天使合伙人,融资" />
+<meta name="description" content="一度人脉为创业者提供与投资人对接的融资平台，解决创业过程中遇到的问题" />
+<meta name="applicable-device" content="pc,mobile" />
+<link href="http://www.acebridge.net/" rel="canonical" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="renderer" content="webkit" /> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="black" name="apple-mobile-web-app-status-bar-style">
+<link rel="stylesheet" href="css/bp.css" />
+<script src="js/jquery-2.2.1.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/bp.js"></script>
+</head>
+
+<body class="pageOrganizationDetails">
+<!--[if lt IE 9]><div class="hate_ie">一度提示：您的浏览器版本过低，不能正常访问本站。<br />请使用IE9以上浏览器或者谷歌、火狐、360极速等高级浏览器！</div><![endif]-->
+<script src="js/topbar_investor.js"></script>
+<div class="wrap mainBoxSty01">
+	<section class="boxHeader">
+		<a class="fr btnSty02" href="organizationEdit.htm">修改资料</a>
+		<h2>机构详情</h2>
+	</section>
+
+	<article class="mainBox">
+    <h4 class="captionSty01 mt10">基本资料</h4>
+		<div class="personArticle clearfix">
+			<span class="fr ydRed">待审核</span>
+			<img width="80" height="80" alt="机构LOGO" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" />
+			<strong>一度投资人小组</strong>
+			<br />机构ID：XXX
+			<br />管理员：XXX
+			<div>一度投资人专属小组，投资人来自于35000+投资机构，top100 PE/VC，帮助一度一同筛选过滤项目，共同分享项目投资收益。</div>
+		</div>
+
+        <a href="organizationMember.htm" class="f12 fr mr15 mt20">查看全部 &raquo;</a>
+        <h4 class="captionSty01 mt20">正式成员</h4>
+        <div class="memberList clearfix">
+        	<a href="personDetails.htm"><i class="guanliyuan" title="管理员"></i><img width="60" height="60" alt="成员头像" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" />姓名</a>
+        	<a href="personDetails.htm"><img width="60" height="60" alt="成员头像" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" />姓名</a>
+        	<a href="personDetails.htm"><img width="60" height="60" alt="成员头像" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" />姓名</a>
+        	<a href="personDetails.htm"><img width="60" height="60" alt="成员头像" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" />姓名</a>
+        </div>
+        <div class="tc mt20"><a href="javascript:;" id="jq_copyLink" class="btnSty04 mt10">分享专属BP接收链接</a><a href="javascript:;" id="jq_weixinShare" class="btnSty03 ml15 mt10" rel="仅在微信中显示">邀请好友</a></div>
+	</article>
+</div>
+
+<script src="js/boot.js"></script>
+<!--分享专属BP接收链接 start-->
+<div class="winSty01" id="jq_copyLinkWin">
+<i class="btnClose02 jq_closeParent" title="点击关闭窗口"></i>
+    <div class="winSty01_tip">
+      <article class="wordsBox">
+        分享专属BP接收链接
+        <div class="labelList">
+          <label class="clearfix"><a href="javascript:;" class="btnSty06 fr">分享</a><img width="60" height="60" alt="机构LOGO" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" /> 机构名</label>
+          <label class="clearfix"><a href="javascript:;" class="btnSty06 fr">分享</a><img width="60" height="60" alt="机构LOGO" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" /> 机构名</label>
+          <label class="clearfix"><a href="javascript:;" class="btnSty06 fr">分享</a><img width="60" height="60" alt="机构LOGO" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" /> 机构名</label>
+          <label class="clearfix"><a href="javascript:;" class="btnSty06 fr">分享</a><img width="60" height="60" alt="机构LOGO" class="face" src="http://www.acebridge.net/demand/images/defaultface.gif" /> 机构名</label>
+        </div>
+      </article>
+    </div>
+</div>
+<!--分享专属BP接收链接 end-->
+
+<!--分享成功提示 start-->
+<div class="winSty01" id="jq_copyLinkWin">
+<i class="btnClose02 jq_closeParent" title="点击关闭窗口"></i>
+    <div class="winSty01_tip">
+      <article class="wordsBox">
+        <h4 class="ydGreen">分享成功</h4>
+        管理员已收到您分享的BP
+      </article>
+    </div>
+</div>
+<!--分享成功提示 end-->
+
+<!-- 微信中显示的分享按钮 -->
+<script>if(navigator.userAgent.match(/MicroMessenger/i)){document.getElementById("jq_weixinShare").style.display="block";}</script>
+
+</body>
+</html>

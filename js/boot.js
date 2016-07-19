@@ -1,0 +1,3 @@
+document.write('<nav class="fixBotMenu"><div class="boxFlex"><a href="index.htm" class="nav01"><i class="icon-books"></i>项目</a><a href="organization.htm" class="nav02"><i class="icon-profile"></i>联系人</a><a href="userCenter.htm" class="nav03"><i class="icon-user"></i>我的</a></div></nav>'
+	// +'<script>var _hmt = _hmt || [];(function() {var hm = document.createElement("script");hm.src = "//hm.baidu.com/hm.js?6a60d1c848669886ca696ad048950cc3";var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(hm, s);})();</script>'
+	);

@@ -4,19 +4,336 @@
 <meta charset="utf-8">
 <title>BP静态页面预览</title>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-<meta name=”renderer” content=”webkit” /> 
+<meta name="renderer" content="webkit" /> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
 <style>
+body{padding-top:50px;}
+mark{display:block;background:#fff;color:#666;}
 table{width:980px;margin:20px auto;border-collapse:collapse;}
-th,td{padding:5px;border:1px solid #095db1;}
-thead th{background:#095db1;color:#fff;}
+caption{font-size:1.25em;line-height:2;}
+th,td{padding:7px 10px;border:1px solid #ccc;}
+thead th{background:#eee;color:#333;}
 tbody th{text-align:center;font-weight:normal;}
+th.tr{text-align:right;font-weight:bold;}
+tbody td,tbody th{border-color:#ccc;}
+tbody td.num{text-align:center;color:#999;}
+tr:nth-child(even) td{background:#f4f4f4;}
+tbody tr:hover td{background:#eee;}
+a{text-decoration:none;color:#000;}
+a:hover{text-decoration:underline;color:#095db1;}
+.tips{font-size:.75em;color:#666;}
+.logined{display:inline-block;margin-left:10px;font-size:.75em;color:#069;}
+.fixTopMenu{position:fixed;left:0;top:0;width:100%;z-index:2;}
+.boxFlex{display:-moz-box;display:-webkit-box;display:box;width:100%;box-shadow:0 0 1px #666;background:#eee;text-align:center;}
+.boxFlex a{display:block;-moz-box-flex:1;-webkit-box-flex:1;box-flex:1;border-left:1px solid #ddd;line-height:44px;}
+.boxFlex a:first-child{border:none;}
+.boxFlex a.cur{background:#256fb9;color:#fff;}
+.boxFlex a:hover,.boxFlex a:active{background:#209cea;text-decoration:none;color:#fff;}
+
+.boot{text-align:center;padding:30px 0;color:#999;}
+@media screen and (max-width:640px){
+table{width:100%;}
+}
 </style>
+<script src="js/jquery-2.2.1.min.js"></script>
+<script type="text/javascript">
+	$(function(){
+		//各项统计
+		$("mark").each(function(){
+			$(this).text($(this).parents("tbody").find("tr").length);
+		});
+		//排序数字
+		$("#jq_num .num").each(function(index){
+			$(this).html(index+1);
+		});
+		//点击跳转
+		$("#jq_fixTopMenu a").each(function(index){
+				var $scrollTop=$("#jq_num tbody").eq(index).offset().top-45;
+			$(this).click(function(){
+				$("html,body").animate({scrollTop:$scrollTop});
+				$(this).addClass("cur").siblings().removeClass("cur");
+			});
+		});
+		//滚动设定导航当前
+		$(window).scroll(function(){
+			var $wtop=$(window).scrollTop(),
+			$jump0=$("#jq_num tbody").eq(0).offset().top-80,
+			$jump1=$("#jq_num tbody").eq(1).offset().top-80,
+			$jump2=$("#jq_num tbody").eq(2).offset().top-80,
+			$jump3=$("#jq_num tbody").eq(3).offset().top-80,
+			$jump4=$("#jq_num tbody").eq(4).offset().top-80,
+			$jump5=$("#jq_num tbody").eq(5).offset().top-80,
+			$jump6=$("#jq_num tbody").eq(6).offset().top-80,
+			$jump7=$("#jq_num tbody").eq(7).offset().top-80,
+			$jump8=$("#jq_num tbody").eq(8).offset().top-80,
+			$jump9=$("#jq_num tbody").eq(9).offset().top-80,
+			$jump10=$("#jq_num tbody").eq(10).offset().top-80,
+			$jump11=$("#jq_num tbody").eq(11).offset().top-80,
+			$jump12=$("#jq_num tbody").eq(12).offset().top-80,
+			$jump13=$("#jq_num tbody").eq(13).offset().top-80;
+			$jump14=$("#jq_num tbody").eq(14).offset().top-80;
+					  if($wtop>=$jump0 && $wtop<$jump1){
+					$("#jq_fixTopMenu a").eq(0).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump1 && $wtop<$jump2){
+					$("#jq_fixTopMenu a").eq(1).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump2 && $wtop<$jump3){
+					$("#jq_fixTopMenu a").eq(2).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump3 && $wtop<$jump4){
+					$("#jq_fixTopMenu a").eq(3).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump4 && $wtop<$jump5){
+					$("#jq_fixTopMenu a").eq(4).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump5 && $wtop<$jump6){
+					$("#jq_fixTopMenu a").eq(5).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump6 && $wtop<$jump7){
+					$("#jq_fixTopMenu a").eq(6).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump7 && $wtop<$jump8){
+					$("#jq_fixTopMenu a").eq(7).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump8 && $wtop<$jump9){
+					$("#jq_fixTopMenu a").eq(8).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump9 && $wtop<$jump10){
+					$("#jq_fixTopMenu a").eq(9).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump10 && $wtop<$jump11){
+					$("#jq_fixTopMenu a").eq(10).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump11 && $wtop<$jump12){
+					$("#jq_fixTopMenu a").eq(11).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump12 && $wtop<$jump13){
+					$("#jq_fixTopMenu a").eq(12).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump13 && $wtop<$jump14){
+					$("#jq_fixTopMenu a").eq(13).addClass("cur").siblings().removeClass("cur");
+				}else if($wtop>=$jump14){
+					$("#jq_fixTopMenu a").eq(14).addClass("cur").siblings().removeClass("cur");
+				}else{$("#jq_mainNav a").removeClass("cur");}
+		});
+	 });
+</script>
 </head>
 
-<body>
 
-<table>
+<body>
+<table id="jq_num">
+<caption>H5页面各模块页面统计</caption>
+<thead>
+	<tr>
+	<th class="tr">模块</th>
+	<th>包含页面</th>
+	<th>计数</th>
+	</tr>
+</thead>
+<!-- ///////////////// BP ///////////////// -->
+<tbody id="jump13">
+<tr>
+<th rowspan="16" class="tr">BP<mark>0</mark></th>
+<td><a href="../bp/bp_mine.htm">我的项目</a><span class="logined">需登录</span></td>
+<td class="num">1</td>
+</tr>
+<tr>
+<td><a href="../bp/bp_upload.htm">上传BP（创建项目）</a><span class="logined">需登录</span></td>
+<td class="num">2</td>
+</tr>
+<tr>
+<td><a href="../bp/bp_details.htm">项目详情（创始人）</a></td>
+<td class="num">3</td>
+</tr>
+<tr>
+<td><a href="../bp/bp_collect.htm">我关注的项目</a><span class="logined">需登录</span></td>
+<td class="num">4</td>
+</tr>
+<tr>
+<td><a href="../bp/bp_shareList.htm">我分享的项目</a><span class="logined">需登录</span></td>
+<td class="num">5</td>
+</tr>
+<tr>
+<td><a href="../bp/bp_highBp.htm">优质项目推荐</a></td>
+<td class="num">6</td>
+</tr>
+<tr>
+<td><a href="../bp/profitRule.htm">收益规则</a></td>
+<td class="num">7</td>
+</tr>
+<tr>
+<td><a href="../bp/selAddressee.htm">填写收信人</a><span class="logined">需登录</span></td>
+<td class="num">8</td>
+</tr>
+<tr>
+<td><a href="../bp/bp_perfectInformation.htm">完善资料</a><span class="logined">需登录</span></td>
+<td class="num">9</td>
+</tr>
+<tr>
+<td><a href="../bp/bp_auditFailure.htm">完善资料-审核失败</a><span class="logined">需登录</span></td>
+<td class="num">10</td>
+</tr>
+<tr>
+<td><a href="../bp/warning.htm">warning</a></td>
+<td class="num">11</td>
+</tr>
+<tr>
+<td><a href="../bp/loading.htm">loading</a></td>
+<td class="num">12</td>
+</tr>
+<tr>
+<td><a href="../bp/projectFinancing.htm">项目融资</a></td>
+<td class="num">13</td>
+</tr>
+<tr>
+<td><a href="../bp/bp_details02.htm">项目融资-项目详情</a></td>
+<td class="num">14</td>
+</tr>
+<tr>
+<td><a href="../bp/albums.htm">图片浏览</a></td>
+<td class="num">15</td>
+</tr>
+<tr>
+<td><a href="../bp/bpin.htm">H5入口页</a></td>
+<td class="num">16</td>
+</tr>
+</tbody>
+<!-- ///////////////// SAAS ///////////////// -->
+<tbody id="jump14">
+<tr>
+	<th rowspan="35" class="tr">SAAS<mark>0</mark></th>
+	<td><a href="../bp/index.htm">项目（首页）</a></td>
+	<td class="num">1</td>
+</tr>
+<tr>
+	<td><a href="../bp/managerZone.htm">管理员专区</a></td>
+	<td class="num">2</td>
+</tr>
+<tr>
+	<td><a href="../bp/bp_wait.htm">待评价的全部项目</a></td>
+	<td class="num">3</td>
+</tr>
+<tr>
+	<td><a href="../bp/followBP.htm">跟进中的项目</a></td>
+	<td class="num">4</td>
+</tr>
+<tr>
+	<td><a href="../bp/team.htm">项目组</a></td>
+	<td class="num">5</td>
+</tr>
+<tr>
+	<td><a href="../bp/dueDiligenceRecord.htm">尽调记录</a></td>
+	<td class="num">6</td>
+</tr>
+<tr>
+	<td><a href="../bp/dueDiligenceDetails.htm">尽调详情</a></td>
+	<td class="num">7</td>
+</tr>
+<tr>
+	<td><a href="../bp/dueDiligenceCreat.htm">尽调编辑与添加</a></td>
+	<td class="num">8</td>
+</tr>
+<tr>
+	<td><a href="../bp/bp_list.htm">一度推荐的项目</a></td>
+	<td class="num">9</td>
+</tr>
+<tr>
+	<td><a href="../bp/bp_detailsLP.htm">项目详情</a></td>
+	<td class="num">10</td>
+</tr>
+<tr>
+	<td><a href="../bp/bp_appraisal.htm">评价项目</a></td>
+	<td class="num">11</td>
+</tr>
+<tr>
+	<td><a href="../bp/organization.htm">联系人</a></td>
+	<td class="num">12</td>
+</tr>
+<tr>
+	<td><a href="../bp/organizationCreat.htm">新建机构</a></td>
+	<td class="num">13</td>
+</tr>
+<tr>
+	<td><a href="../bp/organizationEdit.htm">修改机构资料</a></td>
+	<td class="num">14</td>
+</tr>
+<tr>
+	<td><a href="../bp/organizationJoin.htm">加入机构</a></td>
+	<td class="num">15</td>
+</tr>
+<tr>
+	<td><a href="../bp/organizationDetails.htm">机构详情</a></td>
+	<td class="num">16</td>
+</tr>
+<tr>
+	<td><a href="../bp/organizationMember.htm">机构成员</a></td>
+	<td class="num">17</td>
+</tr>
+<tr>
+	<td><a href="../bp/organizationMemberRemove.htm">踢出机构成员</a></td>
+	<td class="num">18</td>
+</tr>
+<tr>
+	<td><a href="../bp/transferManager.htm">转让管理员</a></td>
+	<td class="num">19</td>
+</tr>
+<tr>
+	<td><a href="../bp/organizationJoinCheck.htm">加入机构审批</a></td>
+	<td class="num">20</td>
+</tr>
+<tr>
+	<td><a href="../bp/personDetails.htm">个人详情</a></td>
+	<td class="num">21</td>
+</tr>
+<tr>
+	<td><a href="../bp/teamMember.htm">项目组成员</a></td>
+	<td class="num">22</td>
+</tr>
+<tr>
+	<td><a href="../bp/sendInvestmentIntentions.htm">发送投资意向</a></td>
+	<td class="num">23</td>
+</tr>
+<tr>
+	<td><a href="../bp/followManagement.htm">跟进管理</a></td>
+	<td class="num">24</td>
+</tr>
+<tr>
+	<td><a href="../bp/followManagementCheck.htm">跟进审批</a></td>
+	<td class="num">25</td>
+</tr>
+<tr>
+	<td><a href="../bp/followAdd.htm">添加跟进人</a></td>
+	<td class="num">26</td>
+</tr>
+<tr>
+	<td><a href="../bp/distributeBp.htm">分发项目</a></td>
+	<td class="num">27</td>
+</tr>
+<tr>
+	<td><a href="../bp/distributeMember.htm">选择发送成员</a></td>
+	<td class="num">28</td>
+</tr>
+<tr>
+	<td><a href="../bp/bpSaw.htm">看过的项目</a></td>
+	<td class="num">29</td>
+</tr>
+<tr>
+	<td><a href="../bp/commentDetails.htm">评论详情</a></td>
+	<td class="num">30</td>
+</tr>
+<tr>
+	<td><a href="../bp/interviewRecord.htm">约谈记录</a></td>
+	<td class="num">31</td>
+</tr>
+<tr>
+	<td><a href="../bp/setup.htm">设置</a></td>
+	<td class="num">32</td>
+</tr>
+<tr>
+	<td><a href="../bp/userCenter.htm">我的</a></td>
+	<td class="num">33</td>
+</tr>
+<tr>
+	<td><a href="../bp/personalData.htm">个人资料</a></td>
+	<td class="num">34</td>
+</tr>
+<tr>
+	<td><a href="../bp/news.htm">消息中心</a></td>
+	<td class="num">35</td>
+</tr>
+
+</tbody>
+</table>
+<!-- <table>
 <thead>
 <tr>
 <th>序号</th>
@@ -28,11 +345,11 @@ tbody th{text-align:center;font-weight:normal;}
 <tr>
 <th>1</th>
 <td>我的项目</td>
-<td><a href="bp_mine.htm" target="_blank">bp_mine.htm</a></td>
+<td><a href="bp_mine.htm">bp_mine.htm</a></td>
 </tr>
 <tr>
 <th>2</th>
-<td>创建项目</td>
+<td>上传BP（创建项目）</td>
 <td><a href="bp_upload.htm">bp_upload.htm</a></td>
 </tr>
 <tr>
@@ -42,17 +359,17 @@ tbody th{text-align:center;font-weight:normal;}
 </tr>
 <tr>
 <th>4</th>
-<td>项目详情（投资人）</td>
+<td>SAAS-项目详情（投资人）</td>
 <td><a href="bp_detailsLP.htm">bp_detailsLP.htm</a></td>
 </tr>
 <tr>
 <th>5</th>
-<td>评价项目</td>
+<td>SAAS-评价项目</td>
 <td><a href="bp_appraisal.htm">bp_appraisal.htm</a></td>
 </tr>
 <tr>
 <th>6</th>
-<td>一度推荐<!-- 推荐给投资人的项目列表 --></td>
+<td>SAAS-一度推荐的项目</td>
 <td><a href="bp_list.htm">bp_list.htm</a></td>
 </tr>
 <tr>
@@ -68,11 +385,11 @@ tbody th{text-align:center;font-weight:normal;}
 <tr>
 <th>9</th>
 <td>H5入口页</td>
-<td><a href="http://115.28.203.37:8088/h5/bpin.htm">http://115.28.203.37:8088/h5/bpin.htm</a></td>
+<td><a href="../h5/bpin.htm">../h5/bpin.htm</a></td>
 </tr>
 <tr>
 <th>10</th>
-<td>待评价</td>
+<td>SAAS-待评价的全部项目</td>
 <td><a href="bp_wait.htm">bp_wait.htm</a></td>
 </tr>
 <tr>
@@ -83,20 +400,83 @@ tbody th{text-align:center;font-weight:normal;}
 <tr>
 <th>12</th>
 <td>我分享的项目</td>
-<td><a href="bp_shareList.htm">bp_shareList.htm</a> 投资人和创业者导航各自添加入口链接</td>
+<td><a href="bp_shareList.htm">bp_shareList</a></td>
 </tr>
 <tr>
 <th>13</th>
 <td>优质项目推荐</td>
 <td><a href="bp_highBp.htm">bp_highBp.htm</a></td>
 </tr>
+<tr>
+<th>14</th>
+<td>收益规则</td>
+<td><a href="profitRule.htm">profitRule.htm</a></td>
+</tr>
+<tr>
+<th>15</th>
+<td>填写收信人</td>
+<td><a href="selAddressee.htm">selAddressee</a></td>
+</tr>
+<tr>
+<th>16</th>
+<td>完善资料</td>
+<td><a href="bp_perfectInformation.htm">bp_perfectInformation</a></td>
+</tr>
+<tr>
+<th>17</th>
+<td>完善资料-审核失败</td>
+<td><a href="bp_auditFailure.htm">bp_auditFailure.htm</a></td>
+</tr>
+<tr>
+<th>18</th>
+<td>项目融资</td>
+<td><a href="projectFinancing.htm">projectFinancing.htm</a></td>
+</tr>
+<tr>
+<th>19</th>
+<td>图片浏览</td>
+<td><a href="albums.htm">albums.htm</a></td>
+</tr>
+<tr>
+<th>20</th>
+<td>SAAS-项目</td>
+<td><a href="index.htm">index.htm</a></td>
+</tr>
+<tr>
+<th>21</th>
+<td>SAAS-待评价项目</td>
+<td><a href="evaluationBP.htm">evaluationBP.htm</a></td>
+</tr>
+<tr>
+<th>22</th>
+<td>SAAS-管理员专区</td>
+<td><a href="managerZone.htm">managerZone.htm</a></td>
+</tr>
+<tr>
+<th>23</th>
+<td>SAAS-跟进中的项目</td>
+<td><a href="followBP.htm">followBP.htm</a></td>
+</tr>
+<tr>
+<th>24</th>
+<td>SAAS-联系人</td>
+<td><a href="organization.htm">organization.htm</a></td>
+</tr>
+<tr>
+<th>25</th>
+<td>SAAS-我的</td>
+<td><a href="userCenter.htm">userCenter.htm</a></td>
+</tr>
+<tr>
+<th>26</th>
+<td>SAAS-加入机构</td>
+<td><a href="organizationJoin.htm">organizationJoin.htm</a></td>
+</tr>
+
+
+
 </tbody>
-</table>
-
-
-
-
-
+</table> -->
 
 </body>
 </html>
